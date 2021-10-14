@@ -1,0 +1,20 @@
+\usepackage{tcolorbox} \tcbuselibrary{listings}
+% https://mirror.macomnet.net/pub/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+
+\newtcblisting{tikzex}[2]{text outside listing,
+	righthand width=#2cm,
+	colframe=white, colback=black!8!white,
+	before={\newpage \begin{center} \hspace{0mm} \vfill},
+	before lower={\begin{center} \begin{tikzpicture}[scale=#1]},
+	after lower={\end{tikzpicture} \end{center}},
+	after={\vfill \hspace{0mm} \end{center}}
+   }
+
+\newtcblisting{tikzex-nobt}[1]{text outside listing,
+	righthand width=#1cm,
+	colframe=white, colback=black!8!white,
+	before={\newpage \begin{center} \hspace{0mm} \vfill},
+	before lower={\begin{center}},
+	after lower={\end{center}},
+	after={\vfill \hspace{0mm} \end{center}}
+   }
