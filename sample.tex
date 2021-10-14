@@ -48,9 +48,10 @@
 \foreach \x in {0,...,7} 
   \foreach \y in {0,...,7} {
     \ifthenelse{\intcalcMod{\x+\y}{2}=0}
-      {\fill[RawSienna!50!white]
+      {\fill[RawSienna!55!white]
             (\x,\y) rectangle ++(1,1);}
-      {}
+      {\fill[RawSienna!5!white]
+            (\x,\y) rectangle ++(1,1);}
   }
 
 
