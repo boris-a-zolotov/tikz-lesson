@@ -1,0 +1,45 @@
+\documentclass[12pt]{extarticle}
+
+\usepackage{extsizes} \pagestyle{empty}
+
+\usepackage[paperwidth=24cm,paperheight=14cm,margin=0.5cm]{geometry}
+
+\usepackage{verbatim} \usepackage[russian]{babel}
+
+\usepackage{amssymb,mathtools,amsmath}
+\usepackage{tikz}
+
+\usepackage{tcolorbox} \tcbuselibrary{listings}
+% https://mirror.macomnet.net/pub/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+
+\newtcblisting{tikzex}[1]{text outside listing,
+	righthand width=#1cm,
+	colframe=white, colback=black!8!white,
+	before={\newpage \begin{center}},
+	before lower={\begin{center} \begin{tikzpicture}},
+	after lower={\end{tikzpicture} \end{center}},
+	after={\end{center}}
+   }
+
+\input{f/mspec}
+\begin{document}
+
+\begin{tikzex}{13}
+\foreach \j in {2,3,4} {
+  \begin{scope}[yshift=-4.3 * \j cm]
+    \draw (-1.6,1.4) node[left]{\( (9,\j) \)};
+
+    \foreach \i in {0,...,8} {
+
+      \fill[black] (360/9 * \i : 1.6cm)
+        circle[radius=1mm];
+
+      \draw[thick] (360/9 * \i : 1.6cm) --
+        ({360/9 * (\i + \j)} : 1.6cm);
+
+    }
+  \end{scope}
+}
+\end{tikzex}
+
+\end{document}
