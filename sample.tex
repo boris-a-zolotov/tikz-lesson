@@ -23,6 +23,15 @@
 	after={\vfill \hspace{0mm} \end{center}}
    }
 
+\newtcblisting{tikzex-nobt}[1]{text outside listing,
+	righthand width=#1cm,
+	colframe=white, colback=black!8!white,
+	before={\newpage \begin{center} \hspace{0mm} \vfill},
+	before lower={\begin{center}},
+	after lower={\end{center}},
+	after={\vfill \hspace{0mm} \end{center}}
+   }
+
 \input{f/mspec}
 \begin{document}
 
@@ -48,10 +57,9 @@
 \foreach \x in {0,...,7} 
   \foreach \y in {0,...,7} {
     \ifthenelse{\intcalcMod{\x+\y}{2}=0}
-      {\fill[RawSienna!55!white]
-            (\x,\y) rectangle ++(1,1);}
-      {\fill[RawSienna!5!white]
-            (\x,\y) rectangle ++(1,1);}
+      {\fill[RawSienna!55!white]}
+      {\fill[RawSienna!5!white]}
+            (\x,\y) rectangle ++(1,1);
   }
 
 
@@ -61,10 +69,33 @@
 }
 
 
-\foreach \i in {0,...,8} {
-  \draw (0,\i) -- (8,\i) (\i,0) -- (\i,8);
-}
+\draw[step=1cm, black] (0,0) grid (8,8);
 \end{tikzex}
+
+\begin{tikzex-nobt}{12.5}
+\begin{tikzpicture}[xscale=1.1,yscale=1.9,
+     declare function={
+         sdrob(\x) = Mod(\x+0.5, 1) - 0.5;
+         main(\x) = (0.5 * \x)^3;
+         invmain(\x) = \x^(1/3) * 2;}]
+
+  \draw[->] ({invmain(-6)}, -1.2)
+         -- ({invmain(6)}, -1.2);
+
+  \foreach \x / \xtext in {0 / 0, -1 / -1,
+    0.5 / \frac{1}{2}, 1.5 / \frac{3}{2},
+    1 / 1, 2 / 2, 3 / 3, -2 / -2, -3 / -3}
+   {\draw (\x cm,-11.25 mm) -- (\x cm,-12.75 mm)
+      node[below, text height=1.6ex]{$\xtext$};}
+
+  \foreach \t in {-4,...,4} {
+    \draw[domain=invmain(\t-0.49):invmain(\t+0.49),
+          variable=\x, samples=12, Cyan!35!black,
+          line cap=round, line width=0.5mm,
+          smooth] plot({\x}, {sdrob(main(\x))});
+  }
+\end{tikzpicture}
+\end{tikzex-nobt}
 
 
 \end{document}
