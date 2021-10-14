@@ -7,6 +7,8 @@
 \usepackage{verbatim} \usepackage[russian]{babel}
 
 \usepackage{amssymb,mathtools,amsmath}
+\usepackage{alphalph,ifthen,intcalc}
+\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{tikz}
 
 \usepackage{tcolorbox} \tcbuselibrary{listings}
@@ -15,10 +17,10 @@
 \newtcblisting{tikzex}[2]{text outside listing,
 	righthand width=#2cm,
 	colframe=white, colback=black!8!white,
-	before={\newpage \begin{center}},
+	before={\newpage \begin{center} \hspace{0mm} \vfill},
 	before lower={\begin{center} \begin{tikzpicture}[scale=#1]},
 	after lower={\end{tikzpicture} \end{center}},
-	after={\end{center}}
+	after={\vfill \hspace{0mm} \end{center}}
    }
 
 \input{f/mspec}
@@ -41,5 +43,27 @@
   \end{scope}
 }
 \end{tikzex}
+
+\begin{tikzex}{0.9}{11.75}
+\foreach \x in {0,...,7} 
+  \foreach \y in {0,...,7} {
+    \ifthenelse{\intcalcMod{\x+\y}{2}=0}
+      {\fill[RawSienna!50!white]
+            (\x,\y) rectangle ++(1,1);}
+      {}
+  }
+
+
+\foreach \i in {1,...,8} {
+  \draw (\i-0.5, -0.5) node{\AlphAlph{\i}}
+        (-0.5, \i-0.5) node{\i};
+}
+
+
+\foreach \i in {0,...,8} {
+  \draw (0,\i) -- (8,\i) (\i,0) -- (\i,8);
+}
+\end{tikzex}
+
 
 \end{document}
