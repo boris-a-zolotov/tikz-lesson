@@ -12,11 +12,11 @@
 \usepackage{tcolorbox} \tcbuselibrary{listings}
 % https://mirror.macomnet.net/pub/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf
 
-\newtcblisting{tikzex}[1]{text outside listing,
-	righthand width=#1cm,
+\newtcblisting{tikzex}[2]{text outside listing,
+	righthand width=#2cm,
 	colframe=white, colback=black!8!white,
 	before={\newpage \begin{center}},
-	before lower={\begin{center} \begin{tikzpicture}},
+	before lower={\begin{center} \begin{tikzpicture}[scale=#1]},
 	after lower={\end{tikzpicture} \end{center}},
 	after={\end{center}}
    }
@@ -24,7 +24,7 @@
 \input{f/mspec}
 \begin{document}
 
-\begin{tikzex}{13}
+\begin{tikzex}{1.02}{13}
 \foreach \j in {2,3,4} {
   \begin{scope}[yshift=-4.3 * \j cm]
     \draw (-1.6,1.4) node[left]{\( (9,\j) \)};
