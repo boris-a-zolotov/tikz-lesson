@@ -12,6 +12,9 @@
 
 \input{modules/tcblisting}
 \input{f/mspec}
+
+\renewcommand{\alpha}{α}
+
 \begin{document}
 
 \input{assets/node-textheight}
@@ -21,6 +24,34 @@
 \input{assets/chess-board}
 
 \input{assets/cubicplot}
+
+\begin{tikzex}{4}{13.5}
+\clip (-0.56,-0.56) rectangle (1.16,1.16);
+
+\foreach \x in {-6,...,6} {
+  \draw[thin,black!15!white] (-1.12, \x/6) --
+    (1.12, \x/6) (\x/6, -1.12) -- (\x/6, 1.12);}
+
+\draw[thick,->] (-1.16,0)--(1.16,0);
+\draw[thick,->] (0,-1.16)--(0,1.16);
+\draw (0,0) circle[radius=1cm];
+
+\draw[very thick,LimeGreen] (0:1cm) arc (0:60:1cm);
+\draw[very thick,NavyBlue] (60:1cm) -- (60:1cm |- 0,0)
+  node[black,midway,above,rotate=90] {$\sin \alpha$};
+
+\filldraw[fill=YellowGreen,fill opacity=0.45,
+  draw=black] (0,0) -- (0.28,0) arc (0:60:0.28)
+  node[black, pos=0.35, anchor=south west,
+  inner sep=0.3ex,text opacity=1]{$\alpha$} -- cycle;
+
+\foreach \t / \ttext in {1, -1, 0.333 / \frac13,
+  -0.333 / -\frac13, 0.666 / \frac23} {
+  \draw (\t,0.05) -- (\t,-0.05) node[below,fill=white,
+        inner sep=0.3ex,text height=2.2ex]{$\ttext$};
+  \draw (0.05,\t) -- (-0.05,\t) node[left, fill=white,
+        inner sep=0.3ex,text height=2.2ex]{$\ttext$};}
+\end{tikzex}
 
 
 \end{document}
