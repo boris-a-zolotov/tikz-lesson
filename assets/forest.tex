@@ -1,0 +1,25 @@
+\begin{tikzex-nobt}{11.75}
+\newcommand{\tblue}{fill=TealBlue}
+
+\begin{forest} for tree={circle,draw,l=1.7cm,%
+  s sep=4mm,minimum size=2.7ex,inner sep=0.5ex}
+    [$x_0$,alias=ROOT
+      [
+        [ ,before drawing tree={x-=0.45cm}]
+        [ ,before drawing tree={x-=0.45cm}]
+        [ ,\tblue,alias=X2
+          [ ,\tblue]   [ ,\tblue]   [ ]]
+      ]   [ [ ]]
+      [ ,alias=X1
+        [ [ ]]   [ ]
+        [ ,\tblue,alias=X3
+          [ ,\tblue]   [ ,\tblue]]
+        [ ,before drawing tree={x+=0.45cm}]
+      ]
+    ]
+  \node[left=-0.05cm of X2]{$x_2$};
+  \node[right=-0.05cm of X3]{$x_3$};
+  \node[right=-0.05cm of X1]{$x_1$};
+  \node[above=0.5cm of ROOT]{A Tree:};
+\end{forest}
+\end{tikzex-nobt}
