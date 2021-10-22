@@ -8,7 +8,8 @@
 \usepackage{amssymb,mathtools,amsmath}
 \usepackage{alphalph,ifthen,intcalc}
 \usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{tikz}
+\usepackage{tikz} \usetikzlibrary{positioning}
+\usepackage[linguistics]{forest}
 
 \input{modules/tcblisting}
 \input{f/mspec}
@@ -17,15 +18,21 @@
 
 \begin{document}
 
-\input{assets/node-textheight}
+\input{assets/roundedgrid}
 
-\input{assets/nk-stars}
-
-\input{assets/trigonometry}
+\input{assets/negpos}
 
 \input{assets/chess-board}
 
+\input{assets/nk-stars}
+
+\input{assets/node-textheight}
+
+\input{assets/trigonometry}
+
 \input{assets/cubicplot}
+
+\input{assets/forest}
 
 
 \end{document}
