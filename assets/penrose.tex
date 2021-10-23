@@ -1,0 +1,24 @@
+\begin{tikzex}{1.05}{12.75}
+% Penrose Unilluminable Room
+
+\newcommand{\aaxis}{3}
+\newcommand{\baxis}{2.5}
+\newcommand{\offset}{1}
+\newcommand{\focus}{sqrt(\aaxis^2-\baxis^2)}
+
+\filldraw[thick,draw=black,fill=CadetBlue,
+          fill opacity=0.55,text opacity=1]
+   (-\aaxis, \offset)
+   arc(180:0:\aaxis cm and \baxis cm)
+   --  ++(0, -\offset/1.5)  -|  ({\focus}, \offset)
+       node[above]{$f_{12}$}
+   arc(90:270:0.75*\offset cm and \offset cm)
+       node[below]{$f_{22}$}
+   --  ++(0, \offset/1.5)  -|  (\aaxis, -\offset)
+   arc(0:-180:\aaxis cm and \baxis cm)
+   --  ++(0, \offset/1.5)  -|  ({-\focus}, -\offset)
+       node[below]{$f_{21}$}
+   arc(-90:90:0.75*\offset cm and \offset cm)
+       node[above]{$f_{11}$}
+   --  ++(0, -\offset/1.5)  -|  cycle;
+\end{tikzex}
