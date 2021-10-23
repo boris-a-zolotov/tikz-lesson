@@ -2,13 +2,16 @@
 
 \usepackage{extsizes} \pagestyle{empty}
 
-\usepackage[paperwidth=24cm,paperheight=14cm,margin=0.5cm]{geometry}
+\usepackage[paperwidth=24cm,paperheight=14cm,
+   margin=0.5cm,top=0.6cm,bottom=0.6cm]{geometry}
 
-\usepackage{verbatim} \usepackage[russian]{babel}
 \usepackage{amssymb,mathtools,amsmath}
-\usepackage{alphalph,ifthen,intcalc}
+\usepackage{alphalph,ifthen,intcalc,verbatim}
 \usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{tikz} \usetikzlibrary{positioning}
+\usepackage{tikz}
+\usetikzlibrary{positioning,
+   decorations.pathmorphing,
+   decorations.pathreplacing}
 \usepackage[linguistics]{forest}
 
 \input{modules/tcblisting}
@@ -17,6 +20,30 @@
 \renewcommand{\alpha}{α}
 
 \begin{document}
+
+\begin{center}
+My setup for this presentation:
+
+\input{modules/mysetup} \vspace{1.5cm}
+
+GitHub repository:
+
+\begin{mysetup}
+https://github.com/boris-a-zolotov/tikz-lesson
+\end{mysetup}
+
+\end{center}
+
+
+\input{assets/laundry1}
+
+\input{assets/laundry2}
+
+\input{assets/polar}
+
+\input{assets/ruler}
+
+\input{assets/penrose}
 
 \input{assets/roundedgrid}
 
