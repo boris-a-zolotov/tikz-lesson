@@ -1,0 +1,24 @@
+\begin{tikzex}{1}{14}
+\newcommand{\midmark}[2]{\draw ($(#1)!0.5!(#2)!1mm!90:(#2)$)
+  --  ($(#1)!0.5!(#2)!1mm!270:(#2)$);}
+
+\newcommand{\perpmark}[3]{
+  \coordinate (#1#2) at ($(#2)!2.5mm!(#3)$);
+  \draw ($(#2)!2.5mm!(#1)$) -- +($(#1#2)-(#2)$) -- (#1#2);}
+
+\coordinate (C) at (0,0); \coordinate (A) at (4.7,1);
+\coordinate (B) at ($(C) ! 0.5 ! 74:(A)$);
+\coordinate (M) at ($(C) ! 0.5 ! (A)$);
+\coordinate (D) at ($(C) ! -1 ! (B)$);
+\coordinate (F) at ($(M) ! -0.8cm ! (B)$);
+
+\filldraw[fill=SpringGreen!22]  (C)--(A)--(B)--cycle;
+\draw (C) -- ($(D)!-1cm!(C)$)   (B) -- ($(F)!-1cm!(B)$);
+\draw[dashed] (D) -- ($(M)!(D)!(B)$);   \draw (D)--(F);
+\midmark{M}{A} \midmark{M}{C} \midmark{C}{B}
+\perpmark{D}{M}{B} \perpmark{D}{F}{B}
+
+\foreach \n in {A,B,C,D,M,F} {
+  \fill (\n) circle[radius=0.7mm]
+      ++(-20:2mm) node[right]{\(\n\)};}
+\end{tikzex}
