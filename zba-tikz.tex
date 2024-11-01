@@ -1,23 +1,19 @@
-\documentclass[12pt]{extarticle}
-
-\usepackage{extsizes} \pagestyle{empty}
+\documentclass[12pt]{article}   \pagestyle{empty}
 
 \usepackage[paperwidth=24cm,paperheight=14cm,
    margin=0.5cm,top=0.6cm,bottom=0.6cm]{geometry}
 
 \usepackage{amssymb,mathtools,amsmath}
 \usepackage{alphalph,ifthen,intcalc,verbatim}
-\usepackage[usenames,dvipsnames,svgnames]{xcolor}
-\usepackage{tikz}
-\usetikzlibrary{positioning,patterns,calc,
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{tikz}  \usepackage{tikz-among-us}
+\usetikzlibrary{positioning, patterns, calc,
    decorations.pathmorphing,
-   decorations.pathreplacing}
+   decorations.pathreplacing, cd}
 \usepackage[linguistics]{forest}
 
 \input{modules/tcblisting}
 \input{f/mspec}
-
-\renewcommand{\alpha}{α}
 
 \begin{document}
 
@@ -43,11 +39,11 @@ https://github.com/boris-a-zolotov/tikz-lesson
 
 \input{assets/nk-stars}
 
+\input{assets/roundedgrid}
+
 \input{assets/polar}
 
 \input{assets/penrose}
-
-\input{assets/roundedgrid}
 
 \input{assets/negpos}
 
@@ -63,5 +59,6 @@ https://github.com/boris-a-zolotov/tikz-lesson
 
 \input{assets/forest}
 
+\input{assets/amoguscd}
 
 \end{document}
