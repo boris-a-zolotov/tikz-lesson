@@ -1,0 +1,24 @@
+\begin{tikzex-nobt}{13.45}
+\colorlet{Body}{RedOrange!70!BrickRed}
+\colorlet{Eyes}{Cerulean!45!Indigo!55!Navy}
+\tikzcdset{every label/.append style = {font=\normalsize}}
+
+\begin{tikzcd}[column sep=large]    \tikz{
+  \fill[Eyes] (0,0.36) arc(90:270:0.36);
+  \fill[Body] (0,0.36) arc(90:-90:0.36);
+  \fill[Eyes,xscale=0.8] (0, 0.18) circle [radius=0.18];
+  \fill[Body,xscale=0.8] (0,-0.18) circle [radius=0.18];
+}    \ar[dr,  "\chi" description,  dashed]
+     \ar[ddr, "\chi_\text{e}"', bend right=14]
+     \ar[drr, "\chi_\text{b}",  bend left=18,
+         start anchor={[yshift=-0.1cm]east},
+         end anchor={[yshift=0.7cm]west}]  \\
+
+  & \tikz{\amongUsI[scale=0.17]{Body}{Eyes}}
+    \ar[d, "\pi_\text{eyes}",  two heads] 
+    \ar[r, "\pi_\text{body}"', two heads, shift left=2.75]
+  & \tikz{\amongUsI[scale=0.17]{Body}{gray!35}}  \\
+
+  & \tikz{\amongUsI[scale=0.17]{gray!35}{Eyes}}
+\end{tikzcd}
+\end{tikzex-nobt}
