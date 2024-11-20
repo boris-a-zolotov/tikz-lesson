@@ -1,0 +1,25 @@
+﻿\begin{tikzex}{0.75}{13.2}
+\newcommand{\fr}[1]{pow(2, -1/12 * #1)}
+\newcommand{\py}[1]{{16*\fr{#1}}}
+\newcommand{\px}[1]{{ 0.6 cm - \fr{#1}*0.09 cm}}
+\newcommand{\nx}[1]{{-0.6 cm + \fr{#1}*0.09 cm}}
+
+\newcommand{\lad}[2]{\node at 
+  ($(0, \py{(#1-1)}) ! 0.5 ! (0, \py{#1})$)
+  {\Large #2}}
+
+\foreach \t in {3,5,7,9,15,17,19,21} {\lad{\t}{.};}
+                     \lad{12}{.\ .};  \lad{24}{.\ .};
+\draw  \foreach \t in {1,...,25} {
+  (\nx{(\t-1)}, \py{(\t-1)}) -- (\nx{\t}, \py{\t}) --
+  (\px{\t}, \py{\t}) -- (\px{(\t-1)}, \py{(\t-1)})
+};
+
+\foreach \t / \w in {0 / 0.08, 1 / 0.10, 2 / 0.14,
+                     3 / 0.22, 4 / 0.26, 5 / 0.3}
+  {\draw[line width=\w mm,color=gray,opacity=0.54]
+    (0.5 - 0.2*\t, 0) -- (0.425 - 0.17*\t, 16);}
+
+\draw[very thick] (-0.52, 16) -- (0.52,16)
+                  (-0.61,0) -- (0.61,0);
+\end{tikzex}
